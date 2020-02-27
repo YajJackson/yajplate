@@ -4,16 +4,13 @@ import React from 'react'
 
 interface props {
     Component: React.ComponentType
-    path: string
 }
-export const PrivateRoute: React.FunctionComponent<props> = ({ Component, path }) => {
+export const PrivateRoute: React.FunctionComponent<props> = ({ Component }) => {
     return (
         <Route
             render={props =>
                 true ? (
                     <Redirect
-                        exact
-                        from='/'
                         to={{
                             pathname: '/login',
                             state: { from: props.location }

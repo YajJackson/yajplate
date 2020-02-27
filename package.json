@@ -3,7 +3,8 @@
     "version": "0.0.1",
     "scripts": {
         "start": "webpack-dev-server --open --mode development",
-        "build": "webpack --mode production"
+        "build": "webpack --mode production",
+        "pretty": "prettier --write 'src/**/*.ts' && prettier --check 'src/**/*.ts' && prettier --write 'src/**/*.tsx' && prettier --check 'src/**/*.tsx'"
     },
     "author": "Jay Jackson",
     "license": "MIT",
