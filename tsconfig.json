@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "baseUrl": "src",
+        "paths": {
+            "@components/*": ["./Components/*"],
+            "@hooks/*": ["./Hooks/*"],
+            "@pages/*": ["./Pages/*"],
+            "@store/*": ["./Store/*"],
+            "@lib/*": ["./Lib/*"],
+            "@context/*": ["./Context/*"],
+            "_types/*": ["./Types/*"]
+        },
+        "allowSyntheticDefaultImports": true,
+        "jsx": "react",
+        "lib": ["dom", "esnext"],
+        "noEmit": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "allowJs": true,
+        "noImplicitAny": false
+    }
+}
