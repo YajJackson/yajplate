@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 
+import { Button } from 'antd'
 import { Storage } from '@lib/Helpers'
 import { UserContext } from '@context/index'
 import { useHistory } from 'react-router-dom'
@@ -7,18 +8,17 @@ import { useHistory } from 'react-router-dom'
 export const Home: React.FunctionComponent = () => {
     const user = useContext(UserContext)
     const history = useHistory()
-    console.log({ user })
     return (
-        <div>
+        <div className='fade-up'>
             <p>Welcome, {user?.username}</p>
-            <input
-                type='button'
-                value='sign out'
+            <Button
                 onClick={() => {
                     Storage.remove(['user'])
                     history.push('/login')
                 }}
-            />
+            >
+                Sign Out
+            </Button>
         </div>
     )
 }

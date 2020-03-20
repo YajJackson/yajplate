@@ -1,4 +1,4 @@
-import { Button, Checkbox, Form, Input } from 'antd'
+import { Button, Form, Input } from 'antd'
 import { useHistory, useLocation } from 'react-router-dom'
 
 import React from 'react'
@@ -17,17 +17,12 @@ export const Login: React.FunctionComponent = () => {
     const onFinishFailed = errorInfo => console.log('Failed:', errorInfo)
 
     return (
-        <Form
-            name='basic'
-            initialValues={{ remember: true }}
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-        >
+        <Form className='fade-up' name='basic' onFinish={onFinish} onFinishFailed={onFinishFailed}>
             <Form.Item
                 name='username'
                 rules={[{ required: true, message: 'Please input your username!' }]}
             >
-                <Input placeholder='Username' allowClear autoComplete='off' />
+                <Input placeholder='Username' allowClear />
             </Form.Item>
 
             <Form.Item
@@ -38,7 +33,7 @@ export const Login: React.FunctionComponent = () => {
             </Form.Item>
 
             <Form.Item>
-                <Button type='primary' htmlType='submit' block>
+                <Button htmlType='submit' block>
                     Sign In
                 </Button>
             </Form.Item>
