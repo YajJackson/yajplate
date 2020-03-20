@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
-interface props {}
+import { Storage } from '@lib/Helpers'
+import { UserContext } from '@context/index'
+import { useHistory } from 'react-router-dom'
 
-export const Home: React.FunctionComponent<props> = props => {
+export const Home: React.FunctionComponent = () => {
+    const user = useContext(UserContext)
+    const history = useHistory()
     return (
         <div>
-            <p>Home page.</p>
+            <p>Welcome, {user?.username}</p>
+            <input
+                type='button'
+                value='sign out'
+                onClick={() => {
+                    Storage.remove(['user'])
+                    history.push('/login')
+                }}
+            />
         </div>
     )
 }

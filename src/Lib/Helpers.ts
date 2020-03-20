@@ -24,7 +24,7 @@ export const Storage = {
             return false
         }
     },
-    remove: (keys = [], callback?: () => any | void): boolean => {
+    remove: (keys: Array<string> = [], callback?: () => any | void): boolean => {
         try {
             keys.forEach(k => localStorage.removeItem(k))
         } catch {
