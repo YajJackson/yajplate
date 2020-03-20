@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom'
 export const Home: React.FunctionComponent = () => {
     const user = useContext(UserContext)
     const history = useHistory()
+    console.log({ user })
     return (
         <div>
             <p>Welcome, {user?.username}</p>

@@ -9,7 +9,7 @@ export const Login: React.FunctionComponent = () => {
     const location = useLocation()
 
     const onFinish = values => {
-        Storage.save('user', { values })
+        Storage.save('user', { ...values })
         // @ts-ignore
         history.push(location.state?.from?.pathname ?? '/')
     }
@@ -27,7 +27,7 @@ export const Login: React.FunctionComponent = () => {
                 name='username'
                 rules={[{ required: true, message: 'Please input your username!' }]}
             >
-                <Input placeholder='Username' allowClear />
+                <Input placeholder='Username' allowClear autoComplete='off' />
             </Form.Item>
 
             <Form.Item
@@ -38,7 +38,7 @@ export const Login: React.FunctionComponent = () => {
             </Form.Item>
 
             <Form.Item>
-                <Button type='primary' htmlType='submit'>
+                <Button type='primary' htmlType='submit' block>
                     Sign In
                 </Button>
             </Form.Item>
