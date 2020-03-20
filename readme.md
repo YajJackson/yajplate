@@ -1,3 +1,8 @@
+# Quickstart
+- Clone repo
+- `npm i`
+- `npm run start`
+
 # Component Library
 - [Ant Design](https://ant.design/components/button/)
 
