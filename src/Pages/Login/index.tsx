@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 
+import { Button } from 'antd'
 import { Storage } from '@lib/Helpers'
 
 export const Login: React.FunctionComponent = () => {
@@ -26,6 +27,7 @@ export const Login: React.FunctionComponent = () => {
                     onChange={e => setUsername(e.target.value)}
                 />
                 <input type='submit' value='sign in' />
+                <Button type='primary'>test</Button>
             </form>
         </div>
     )

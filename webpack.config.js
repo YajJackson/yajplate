@@ -1,14 +1,17 @@
 const path = require('path')
+const fs = require('fs')
+const ltj = require('less-vars-to-js')
+const themeVariables = ltj(fs.readFileSync(path.join(__dirname, './ant-theme.less'), 'utf8'))
 
 module.exports = {
-    entry: './src/index.tsx',
+    entry: ['./src/index.tsx'],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
         publicPath: '/'
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx']
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.less', '.css']
     },
     module: {
         rules: [
@@ -20,10 +23,16 @@ module.exports = {
                 }
             },
             {
-                test: /\.html$/,
+                test: /\.less$/,
                 use: [
+                    'style-loader',
+                    'css-loader',
                     {
-                        loader: 'html-loader'
+                        loader: 'less-loader',
+                        options: {
+                            javascriptEnabled: true,
+                            modifyVars: themeVariables
+                        }
                     }
                 ]
             }
