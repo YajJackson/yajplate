@@ -1,34 +1,47 @@
-import React, { useState } from 'react'
+import { Button, Checkbox, Form, Input } from 'antd'
 import { useHistory, useLocation } from 'react-router-dom'
 
-import { Button } from 'antd'
+import React from 'react'
 import { Storage } from '@lib/Helpers'
 
 export const Login: React.FunctionComponent = () => {
     const history = useHistory()
     const location = useLocation()
-    const [username, setUsername] = useState('')
+
+    const onFinish = values => {
+        Storage.save('user', { values })
+        // @ts-ignore
+        history.push(location.state?.from?.pathname ?? '/')
+    }
+
+    const onFinishFailed = errorInfo => console.log('Failed:', errorInfo)
 
     return (
-        <div>
-            <p>Sign in</p>
-            <form
-                onSubmit={e => {
-                    e.preventDefault()
-                    Storage.save('user', { username })
-                    // @ts-ignore
-                    history.push(location.state?.from?.pathname ?? '/')
-                }}
+        <Form
+            name='basic'
+            initialValues={{ remember: true }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+        >
+            <Form.Item
+                name='username'
+                rules={[{ required: true, message: 'Please input your username!' }]}
             >
-                <input
-                    type='text'
-                    name='username'
-                    placeholder='user'
-                    onChange={e => setUsername(e.target.value)}
-                />
-                <input type='submit' value='sign in' />
-                <Button type='primary'>test</Button>
-            </form>
-        </div>
+                <Input placeholder='Username' allowClear />
+            </Form.Item>
+
+            <Form.Item
+                name='password'
+                rules={[{ required: true, message: 'Please input your password!' }]}
+            >
+                <Input.Password placeholder='Password' />
+            </Form.Item>
+
+            <Form.Item>
+                <Button type='primary' htmlType='submit'>
+                    Sign In
+                </Button>
+            </Form.Item>
+        </Form>
     )
 }

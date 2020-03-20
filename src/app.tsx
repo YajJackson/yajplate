@@ -1,3 +1,5 @@
+import './app.css'
+
 import { Route, Switch } from 'react-router-dom'
 
 import { PrivateRoute } from '@components/PrivateRoute'
@@ -6,7 +8,7 @@ import routes from 'routes'
 
 export const App = () => {
     return (
-        <div>
+        <div id='app'>
             <Switch>
                 {routes.map(({ path, component }) =>
                     path === '/login' ? (
