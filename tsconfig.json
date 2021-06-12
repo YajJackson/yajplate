@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "baseUrl": "src",
+        "paths": {
+            "@assets/*": ["./assets/*"],
+            "@components/*": ["./components/*"],
+            "@hooks/*": ["./hooks/*"],
+            "@pages/*": ["./pages/*"],
+            "@store/*": ["./store/*"],
+            "@lib/*": ["./lib/*"],
+            "@api/*": ["./api/*"],
+            "@context/*": ["./context/*"],
+            "@@types": ["./types/index.ts"],
+            "@@types/*": ["./types/*"]
+        },
+        "allowSyntheticDefaultImports": true,
+        "jsx": "react",
+        "lib": ["dom", "esnext"],
+        "noEmit": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "allowJs": true,
+        "noImplicitAny": false,
+        "resolveJsonModule": true
+    }
+}
