@@ -9,6 +9,7 @@
             "@pages/*": ["./pages/*"],
             "@store/*": ["./store/*"],
             "@lib/*": ["./lib/*"],
+            "@api": ["./api/index.ts"],
             "@api/*": ["./api/*"],
             "@context/*": ["./context/*"],
             "@@types": ["./types/index.ts"],
