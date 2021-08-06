@@ -48,7 +48,7 @@ export const SignInForm = () => {
                         {selectedInput == INPUT_OPTION.EMAIL && (
                             <motion.div
                                 layoutId='fun'
-                                className='bg-primary h-8 w-1 fixed rounded-full'
+                                className='bg-primary h-8 w-1 absolute rounded-full'
                                 initial={{ x: -20, y: 25 }}
                             />
                         )}
@@ -70,7 +70,7 @@ export const SignInForm = () => {
                         {selectedInput == INPUT_OPTION.PASSWORD && (
                             <motion.div
                                 layoutId='fun'
-                                className='bg-primary h-8 w-1 fixed rounded-full'
+                                className='bg-primary h-8 w-1 absolute rounded-full'
                                 initial={{ x: -20, y: 25 }}
                             />
                         )}
