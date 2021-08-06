@@ -12,7 +12,7 @@ export const LoginPage = () => {
     const [selectedForm, setSelectedForm] = useState(FORM.SIGN_IN)
 
     return (
-        <div className='mx-auto w-full md:w-1/2 lg:w-2/5 mt-20 p-4 space-y-6'>
+        <div className='mx-auto w-full md:w-1/2 lg:w-2/5 mt-10 md:mt-20 p-4 space-y-6'>
             <p className='text-2xl md:text-5xl font-bold mb-4'>Welcome to {APP_STRINGS.appName}</p>
             {selectedForm == FORM.SIGN_IN ? <SignInForm /> : <SignUpForm />}
             {selectedForm == FORM.SIGN_IN ? (
